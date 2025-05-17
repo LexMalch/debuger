@@ -1,5 +1,5 @@
 extends Node2D
-@export var radius = 15  # Расстояние от игрока
+@export var radius = 12  # Расстояние от игрока
 @export var rotation_speed = 10  # Скорость поворота (для плавности)
 
 @onready var player = get_parent()  # Родительская нода (игрок)
@@ -20,8 +20,8 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if player.global_position.x < item.global_position.x:
-		item.rotation = direction.angle() + deg_to_rad(10)
+		item.rotation = direction.angle() + deg_to_rad(30)
 	else:
-		item.rotation = direction.angle() + deg_to_rad(180) + deg_to_rad(10)
+		item.rotation = direction.angle() + deg_to_rad(180) - deg_to_rad(30)
 		
 	
