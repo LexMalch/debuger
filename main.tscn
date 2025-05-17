@@ -1,5 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://b6nyv11ur5obw"]
+[gd_scene load_steps=14 format=4 uid="uid://b6nyv11ur5obw"]
 
+[ext_resource type="Script" uid="uid://caajt1jnulfah" path="res://cave.gd" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cunrc6ni5dadv" path="res://floar/ores.png" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bhxix5rdtca7p" path="res://player.tscn" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://3wxc7v1qvmwl" path="res://erg.png" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://ugfun0qqey0o" path="res://floar/full.png" id="4_1bvp3"]
@@ -18,6 +20,20 @@ texture = ExtResource("3_h2yge")
 [sub_resource type="TileSet" id="TileSet_lquwl"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1bvp3")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c57u"]
+texture = ExtResource("2_lquwl")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_efxa6"]
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+custom_data_layer_0/name = ""
+custom_data_layer_0/type = 0
+sources/3 = SubResource("TileSetAtlasSource_4c57u")
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_lquwl"]
 tile_data = PackedInt32Array(0, 65548, 0, 65536, 12, 0, 1, 131084, 0, 65537, 196620, 0)
@@ -45,6 +61,8 @@ tile_set = SubResource("TileSet_lquwl")
 
 [node name="Cave" type="TileMapLayer" parent="."]
 position = Vector2(16, 144)
+tile_set = SubResource("TileSet_efxa6")
+script = ExtResource("2_1bvp3")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_272bh")
