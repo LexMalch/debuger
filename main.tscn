@@ -1,7 +1,7 @@
 [gd_scene load_steps=41 format=4 uid="uid://b6nyv11ur5obw"]
 
-[ext_resource type="Script" uid="uid://dyota6iuux5kf" path="res://player.gd" id="2_0xm2m"]
-[ext_resource type="Script" path="res://tool.gd" id="2_7mycd"]
+[ext_resource type="Script" path="res://player.gd" id="1_qsp4k"]
+[ext_resource type="Script" uid="uid://bdai3rtrfve4b" path="res://tool.gd" id="2_7mycd"]
 [ext_resource type="Texture2D" uid="uid://bo6eiypv6kasj" path="res://pickaxe.png" id="2_lquwl"]
 [ext_resource type="Texture2D" uid="uid://d2vyky0famktu" path="res://player/player_idle1.png" id="2_qsp4k"]
 [ext_resource type="Texture2D" uid="uid://3wxc7v1qvmwl" path="res://erg.png" id="3_h2yge"]
@@ -203,7 +203,7 @@ pattern_0 = SubResource("TileMapPattern_lquwl")
 [node name="Player" type="CharacterBody2D" parent="."]
 self_modulate = Color(1, 1, 7.735, 1)
 position = Vector2(176, 352)
-script = ExtResource("2_0xm2m")
+script = ExtResource("1_qsp4k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_abqjc")
