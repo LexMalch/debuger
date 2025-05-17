@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b6nyv11ur5obw"]
+[gd_scene load_steps=17 format=4 uid="uid://b6nyv11ur5obw"]
 
 [ext_resource type="Texture2D" uid="uid://bcxaowsxqp0dc" path="res://icon.svg" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dyota6iuux5kf" path="res://character_body_2d.gd" id="2_0xm2m"]
@@ -12,6 +12,43 @@ background_mode = 3
 glow_enabled = true
 glow_intensity = 1.81
 glow_bloom = 0.35
+
+[sub_resource type="Animation" id="Animation_7mycd"]
+resource_name = "mine"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Tool:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.354302, 1.76976]
+}
+
+[sub_resource type="Animation" id="Animation_272bh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Tool:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5vw27"]
+_data = {
+&"RESET": SubResource("Animation_272bh"),
+&"mine": SubResource("Animation_7mycd")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(16, 16)
@@ -58,6 +95,12 @@ texture = ExtResource("1_ig7tw")
 [node name="Tool" type="Area2D" parent="CharacterBody2D"]
 unique_name_in_owner = true
 script = ExtResource("2_7mycd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D/Tool"]
+root_node = NodePath("../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_5vw27")
+}
 
 [node name="Tool_sprite" type="Sprite2D" parent="CharacterBody2D/Tool"]
 position = Vector2(-1.90735e-06, 0)
