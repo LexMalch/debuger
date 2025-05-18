@@ -125,7 +125,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oybyf"]
-size = Vector2(12, 14)
+size = Vector2(12, 7)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jm5j8"]
 radius = 66.0076
@@ -165,6 +165,7 @@ scale_curve = SubResource("CurveTexture_egxbn")
 color_ramp = SubResource("GradientTexture1D_04bvi")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_txlge"]
+radius = 18.6667
 
 [node name="Player" type="CharacterBody2D"]
 self_modulate = Color(1, 1, 7.735, 1)
@@ -177,6 +178,7 @@ animation = &"run_up"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_oybyf")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -201,8 +203,9 @@ randomness = 0.61
 process_material = SubResource("ParticleProcessMaterial_5sn52")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 4)
+position = Vector2(1, 5)
 scale = Vector2(0.375, 0.375)
 shape = SubResource("CircleShape2D_txlge")

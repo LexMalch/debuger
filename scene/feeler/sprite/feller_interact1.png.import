@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcdnjvnwsf8go"
-path="res://.godot/imported/gen8.png-ef6cf4723e9e6c3bd93c38775d84294f.ctex"
+uid="uid://d1b5mguk02yvr"
+path="res://.godot/imported/feller_interact1.png-b4c79e2ea11ac27b3feaeb678dbc2d01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/generator/gen8.png"
-dest_files=["res://.godot/imported/gen8.png-ef6cf4723e9e6c3bd93c38775d84294f.ctex"]
+source_file="res://scene/feeler/sprite/feller_interact1.png"
+dest_files=["res://.godot/imported/feller_interact1.png-b4c79e2ea11ac27b3feaeb678dbc2d01.ctex"]
 
 [params]
 

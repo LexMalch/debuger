@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c26non8760ryi"
-path="res://.godot/imported/gen2.png-0989b61e2717d6d07eaae1bf3442c0a0.ctex"
+uid="uid://cya756w68x6j2"
+path="res://.godot/imported/feeler3.png-80568165bec5b858497a316760a172c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/generator/gen2.png"
-dest_files=["res://.godot/imported/gen2.png-0989b61e2717d6d07eaae1bf3442c0a0.ctex"]
+source_file="res://scene/feeler/sprite/feeler3.png"
+dest_files=["res://.godot/imported/feeler3.png-80568165bec5b858497a316760a172c4.ctex"]
 
 [params]
 
