@@ -14,14 +14,20 @@ func damage_tile(Rid):
 		if damaged_tiles[Rid] <=0:
 			erase_cell(get_coords_for_body_rid(Rid))
 			damaged_tiles.erase(Rid)
-			var coins_scene_inst = coins_scene.instantiate()
-			coins_scene_inst.global_position = to_global(map_to_local(get_coords_for_body_rid(Rid))) + Vector2(-16,-(296-136-16))
+			var coins_scene_inst
 			if data.get_custom_data("type")=="_$_":
-				coins_scene_inst.type ="$"
-				add_child(coins_scene_inst)
+				for i in range(Globals.ores):
+					coins_scene_inst = coins_scene.instantiate()
+					coins_scene_inst.global_position = to_global(map_to_local(get_coords_for_body_rid(Rid))) + Vector2(-16,-(296-136-16))
+					coins_scene_inst.type ="$"
+					add_child(coins_scene_inst)
+				
 			elif data.get_custom_data("type")=="_#_":
-				coins_scene_inst.type ="#"
-				add_child(coins_scene_inst)
+				for i in range(Globals.ores):
+					coins_scene_inst = coins_scene.instantiate()
+					coins_scene_inst.global_position = to_global(map_to_local(get_coords_for_body_rid(Rid))) + Vector2(-16,-(296-136-16))
+					coins_scene_inst.type ="#"
+					add_child(coins_scene_inst)
 			
 		
 	

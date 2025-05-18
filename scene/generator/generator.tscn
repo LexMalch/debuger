@@ -148,6 +148,12 @@ libraries = {
 }
 
 [node name="generator_area" type="Area2D" parent="."]
+collision_mask = 9
+gravity_space_override = 1
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 50.0
 
 [node name="Area_collision" type="CollisionShape2D" parent="generator_area"]
 position = Vector2(0, 8)
@@ -157,7 +163,7 @@ debug_color = Color(0.805252, 0.371615, 0.499287, 0.42)
 
 [node name="Buildup_area" type="Area2D" parent="."]
 collision_layer = 0
-monitoring = false
+collision_mask = 8
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Buildup_area"]
@@ -167,3 +173,4 @@ shape = SubResource("RectangleShape2D_plp2v")
 
 [connection signal="body_entered" from="generator_area" to="." method="_on_generator_area_body_entered"]
 [connection signal="body_exited" from="generator_area" to="." method="_on_generator_area_body_exited"]
+[connection signal="body_entered" from="Buildup_area" to="." method="_on_buildup_area_body_entered"]

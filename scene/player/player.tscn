@@ -201,5 +201,6 @@ randomness = 0.61
 process_material = SubResource("ParticleProcessMaterial_5sn52")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 2)
 scale = Vector2(2.65, 0.885)
-target_position = Vector2(0, 21)
+target_position = Vector2(0, 18.0791)
