@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bhxix5rdtca7p"]
+[gd_scene load_steps=35 format=3 uid="uid://bhxix5rdtca7p"]
 
 [ext_resource type="Script" uid="uid://dyota6iuux5kf" path="res://scene/player/player.gd" id="1_jm5j8"]
 [ext_resource type="Texture2D" uid="uid://d2vyky0famktu" path="res://art/player_sorite/player_idle1.png" id="2_7hik5"]
@@ -164,6 +164,8 @@ scale_max = 2.0
 scale_curve = SubResource("CurveTexture_egxbn")
 color_ramp = SubResource("GradientTexture1D_04bvi")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_txlge"]
+
 [node name="Player" type="CharacterBody2D"]
 self_modulate = Color(1, 1, 7.735, 1)
 position = Vector2(176, 352)
@@ -197,3 +199,10 @@ lifetime = 2.0
 speed_scale = 1.29
 randomness = 0.61
 process_material = SubResource("ParticleProcessMaterial_5sn52")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4)
+scale = Vector2(0.375, 0.375)
+shape = SubResource("CircleShape2D_txlge")
