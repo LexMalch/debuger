@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bhxix5rdtca7p"]
+[gd_scene load_steps=29 format=3 uid="uid://bhxix5rdtca7p"]
 
 [ext_resource type="Script" uid="uid://dyota6iuux5kf" path="res://player.gd" id="1_jm5j8"]
 [ext_resource type="Texture2D" uid="uid://d2vyky0famktu" path="res://player/player_idle1.png" id="2_7hik5"]
@@ -125,7 +125,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oybyf"]
-size = Vector2(16, 16)
+size = Vector2(12, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jm5j8"]
+radius = 66.0076
 
 [node name="Player" type="CharacterBody2D"]
 self_modulate = Color(1, 1, 7.735, 1)
@@ -141,4 +144,15 @@ autoplay = "idle"
 shape = SubResource("RectangleShape2D_oybyf")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.765, 1.765)
+zoom = Vector2(1.75, 1.75)
+
+[node name="suck" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 4
+monitorable = false
+gravity_space_override = 3
+gravity_point = true
+gravity = 200.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="suck"]
+shape = SubResource("CircleShape2D_jm5j8")
