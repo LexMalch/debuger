@@ -1,8 +1,21 @@
-extends CharacterBody2D
+extends StaticBody2D
+var player_inside  = false	
+var zalupa_opend = false
 
-
-func _on_feeler_area_area_entered(area):
-	if Input.is_action_pressed("interact"):
+func  _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("interact") and player_inside  == true and zalupa_opend == false:
+		zalupa_opend = true
 		$Sprite.play("interact")
-		
-	
+
+
+func _on_feeler_area_body_entered(body: Node2D) -> void:
+	player_inside  = true	
+
+
+
+func _on_feeler_area_body_exited(body: Node2D) -> void:
+	player_inside  = false
+	if	zalupa_opend == true:
+		$Sprite.play_backwards("interact")
+
+	zalupa_opend = false

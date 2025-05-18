@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://fin3uilmudga" path="res://scene/feeler/feeler.tscn" id="6_siuy0"]
 
 [sub_resource type="Environment" id="Environment_1bvp3"]
-background_mode = 3
+background_color = Color(0.0239934, 0.067282, 0.0490266, 1)
+background_energy_multiplier = 0.0
 glow_enabled = true
 glow_intensity = 1.81
 glow_bloom = 0.53
@@ -125,7 +126,7 @@ texture = ExtResource("2_qtsyf")
 1:5/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_efxa6"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -154,11 +155,10 @@ script = ExtResource("3_siuy0")
 
 [node name="Player" parent="." instance=ExtResource("4_b8g54")]
 z_index = 10
-position = Vector2(304, 80)
-collision_layer = 2
+position = Vector2(272, 80)
 
 [node name="Generator" parent="." instance=ExtResource("4_qtsyf")]
 position = Vector2(384, 56)
 
 [node name="Feeler" parent="." instance=ExtResource("6_siuy0")]
-position = Vector2(384, -40)
+position = Vector2(384, -80)

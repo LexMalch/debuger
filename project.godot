@@ -15,6 +15,10 @@ run/main_scene="uid://b6nyv11ur5obw"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://art/icon.svg"
 
+[autoload]
+
+Globals="*res://globals.gd"
+
 [display]
 
 window/size/viewport_width=640
@@ -22,6 +26,10 @@ window/size/viewport_height=640
 window/size/initial_position_type=0
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
+
+[global_group]
+
+player=""
 
 [input]
 
@@ -75,6 +83,13 @@ interact={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Map"
+2d_physics/layer_3="Cave"
+2d_physics/layer_4="Coins"
 
 [physics]
 

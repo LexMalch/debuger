@@ -103,14 +103,13 @@ radius = 96.0052
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5h41"]
 
-[node name="Feeler" type="CharacterBody2D"]
+[node name="Feeler" type="StaticBody2D"]
 script = ExtResource("1_p5h41")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rsabo")
 animation = &"interact"
-frame = 7
-frame_progress = 1.0
+frame = 1
 
 [node name="Build_collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
@@ -124,12 +123,11 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_b1ju3")
 
 [node name="Feeler_area" type="Area2D" parent="."]
-collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Feeler_area"]
 position = Vector2(0, 8)
 scale = Vector2(1.48, 1.48)
 shape = SubResource("RectangleShape2D_p5h41")
 
-[connection signal="area_entered" from="Feeler_area" to="." method="_on_feeler_area_area_entered"]
-[connection signal="area_exited" from="Feeler_area" to="." method="_on_feeler_area_area_exited"]
+[connection signal="body_entered" from="Feeler_area" to="." method="_on_feeler_area_body_entered"]
+[connection signal="body_exited" from="Feeler_area" to="." method="_on_feeler_area_body_exited"]
