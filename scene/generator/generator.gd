@@ -23,4 +23,5 @@ func _on_buildup_area_body_entered(body: Node2D) -> void:
 		else:
 			Globals.dollors+=1
 			print("dollars= ",Globals.dollors)
-		body.queue_free()
+		body.explode()
+		

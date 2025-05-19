@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bhxix5rdtca7p"]
+[gd_scene load_steps=36 format=3 uid="uid://bhxix5rdtca7p"]
 
 [ext_resource type="Script" uid="uid://dyota6iuux5kf" path="res://scene/player/player.gd" id="1_jm5j8"]
 [ext_resource type="Texture2D" uid="uid://d2vyky0famktu" path="res://art/player_sorite/player_idle1.png" id="2_7hik5"]
@@ -164,6 +164,15 @@ scale_max = 2.0
 scale_curve = SubResource("CurveTexture_egxbn")
 color_ramp = SubResource("GradientTexture1D_04bvi")
 
+[sub_resource type="Gradient" id="Gradient_04bvi"]
+offsets = PackedFloat32Array(0.0206612, 0.22314, 0.677686)
+colors = PackedColorArray(1, 1, 1, 1, 0.133196, 0.133196, 0.133196, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nqjai"]
+gradient = SubResource("Gradient_04bvi")
+fill = 1
+fill_from = Vector2(0.5, 0.482906)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 self_modulate = Color(1, 1, 7.735, 1)
 position = Vector2(176, 352)
@@ -204,3 +213,9 @@ process_material = SubResource("ParticleProcessMaterial_5sn52")
 position = Vector2(0, 2)
 scale = Vector2(2.65, 0.885)
 target_position = Vector2(0, 18.0791)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.168627)
+texture = SubResource("GradientTexture2D_nqjai")
+texture_scale = 3.0

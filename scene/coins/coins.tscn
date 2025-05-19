@@ -1,9 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://o57jjmv720mi"]
+[gd_scene load_steps=6 format=3 uid="uid://o57jjmv720mi"]
 
 [ext_resource type="Script" uid="uid://cy53i6x0j20oj" path="res://scene/coins/coins.gd" id="1_1wwug"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tsooq"]
 radius = 3.0
+
+[sub_resource type="Curve" id="Curve_1wwug"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.370536, 0.191011), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_y2sod"]
+curve = SubResource("Curve_1wwug")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b80w7"]
+particle_flag_disable_z = true
+angle_min = -184.9
+angle_max = 1.07288e-05
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+gravity = Vector3(1, 0, 0)
+alpha_curve = SubResource("CurveTexture_y2sod")
 
 [node name="Coins" type="RigidBody2D" groups=["coins"]]
 z_index = 3
@@ -20,3 +37,15 @@ polygon = PackedVector2Array(0, 0, 5, 0, 0, 6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 2)
 shape = SubResource("CircleShape2D_tsooq")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_b80w7")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
