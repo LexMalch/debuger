@@ -159,8 +159,7 @@ gravity = Vector3(0, 0, 0)
 radial_accel_min = -200.0
 radial_accel_max = -50.0
 attractor_interaction_enabled = false
-scale_min = 2.0
-scale_max = 2.0
+scale_max = 1.5
 scale_curve = SubResource("CurveTexture_egxbn")
 color_ramp = SubResource("GradientTexture1D_04bvi")
 

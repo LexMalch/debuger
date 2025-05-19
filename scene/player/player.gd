@@ -26,7 +26,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("zoom_in"):
 		$Camera2D.zoom+= Vector2(0.1,0.1)
 		
-	if Input.is_action_just_pressed("zoom_out") and $Camera2D.zoom>= Vector2(0.965, 0.965):
+	if Input.is_action_just_pressed("zoom_out") and $Camera2D.zoom>= Vector2(1.6, 1.6):
+		print($Camera2D.zoom)
 		$Camera2D.zoom-= Vector2(0.1,0.1)
 	if Input.is_action_just_pressed("zoom_reset"):
 		$Camera2D.zoom = Vector2(1.75,1.75)

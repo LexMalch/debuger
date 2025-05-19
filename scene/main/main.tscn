@@ -277,7 +277,7 @@ scroll_ignore_camera_zoom = true
 [node name="Parallax2D" type="Parallax2D" parent="BackGround"]
 repeat_size = Vector2(400, 400)
 autoscroll = Vector2(-50, 500)
-repeat_times = 20
+repeat_times = 10
 follow_viewport = false
 
 [node name="Sprite2D" type="Sprite2D" parent="BackGround/Parallax2D"]
@@ -292,7 +292,7 @@ self_modulate = Color(0.209781, 0.405611, 0.361447, 1)
 scroll_offset = Vector2(30, 0)
 repeat_size = Vector2(400, 400)
 autoscroll = Vector2(-50, 400)
-repeat_times = 20
+repeat_times = 10
 follow_viewport = false
 
 [node name="Sprite2D" type="Sprite2D" parent="BackGround/Parallax2D2"]
@@ -306,7 +306,7 @@ self_modulate = Color(0.209781, 0.405611, 0.361447, 1)
 scroll_offset = Vector2(30, 0)
 repeat_size = Vector2(400, 400)
 autoscroll = Vector2(-60, 600)
-repeat_times = 20
+repeat_times = 10
 follow_viewport = false
 
 [node name="Sprite2D" type="Sprite2D" parent="BackGround/Parallax2D3"]
@@ -316,7 +316,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("8_onf7c")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(320, 384)
-scale = Vector2(9.82813, 7.59375)
+position = Vector2(315.75, 384)
+scale = Vector2(9.69531, 7.59375)
 blend_mode = 1
 texture = SubResource("GradientTexture2D_pidc3")
