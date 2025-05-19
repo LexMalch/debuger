@@ -173,13 +173,14 @@ sources/1 = SubResource("TileSetAtlasSource_lquwl")
 sources/0 = SubResource("TileSetAtlasSource_onf7c")
 
 [sub_resource type="Gradient" id="Gradient_si3g0"]
-offsets = PackedFloat32Array(0, 0.884298, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.881937, 0.881937, 0.881937, 1, 0.753984, 0.753984, 0.753984, 1)
+offsets = PackedFloat32Array(0.0123967, 0.260331, 1)
+colors = PackedColorArray(0.336608, 0.336608, 0.336608, 1, 0.881937, 0.881937, 0.881937, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pidc3"]
 gradient = SubResource("Gradient_si3g0")
-fill_from = Vector2(0.491453, 0.358974)
-fill_to = Vector2(0.491453, 0)
+fill = 1
+fill_from = Vector2(0.491453, 0)
+fill_to = Vector2(0.487179, 0.230769)
 
 [node name="Main" type="Node2D"]
 
