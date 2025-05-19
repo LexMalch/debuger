@@ -59,7 +59,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdblc"]
-size = Vector2(32, 32)
+size = Vector2(32, 42)
 
 [sub_resource type="Animation" id="Animation_plp2v"]
 length = 0.001

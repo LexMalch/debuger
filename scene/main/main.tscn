@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://b6nyv11ur5obw"]
+[gd_scene load_steps=22 format=4 uid="uid://b6nyv11ur5obw"]
 
 [ext_resource type="Shader" uid="uid://cgdvld361dd5t" path="res://scene/main/glitch.gdshader" id="1_si3g0"]
 [ext_resource type="Texture2D" uid="uid://bdiyibao454u2" path="res://art/tiles/tileset2.png" id="2_qtsyf"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://fin3uilmudga" path="res://scene/feeler/feeler.tscn" id="6_siuy0"]
 [ext_resource type="Texture2D" uid="uid://dqpcj1awtuhy4" path="res://Sprite-0005.png" id="7_b8g54"]
 [ext_resource type="Texture2D" uid="uid://cl4p6eyl5u1hh" path="res://0.png" id="8_onf7c"]
+[ext_resource type="Shader" uid="uid://c4csolk8a1q6q" path="res://scene/main/tv.gdshader" id="10_pidc3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pidc3"]
 shader = ExtResource("1_si3g0")
@@ -182,6 +183,30 @@ fill = 1
 fill_from = Vector2(0.491453, 0)
 fill_to = Vector2(0.487179, 0.230769)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n5o2v"]
+shader = ExtResource("10_pidc3")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.158
+shader_parameter/scanlines_width = 0.103
+shader_parameter/grille_opacity = 0.172
+shader_parameter/resolution = Vector2(1280, 1280)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 1.0
+shader_parameter/roll_size = 5.977
+shader_parameter/roll_variation = 1.689
+shader_parameter/distort_intensity = 0.012
+shader_parameter/noise_opacity = 0.039
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.083
+shader_parameter/aberration = 0.015
+shader_parameter/brightness = 1.0
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.061
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.402
+
 [node name="Main" type="Node2D"]
 
 [node name="Gliching" type="Node2D" parent="."]
@@ -320,3 +345,10 @@ position = Vector2(315.75, 384)
 scale = Vector2(9.69531, 7.59375)
 blend_mode = 1
 texture = SubResource("GradientTexture2D_pidc3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_n5o2v")
+offset_left = -719.0
+offset_top = -1358.0
+offset_right = 1426.0
+offset_bottom = 983.0
