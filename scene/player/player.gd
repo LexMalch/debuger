@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var max_speed = 100
 @onready var cave: = $/root/Main/Cave
-var damage = 1 
+var damage = 5 
 
 func _physics_process(delta: float) -> void:
 	var direction = movement_vector().normalized()
@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("use"):
 		if $RayCast2D.get_collider() and $RayCast2D.get_collider().get("name") == "Cave":
 			var colider = $RayCast2D.get_collider_rid()
-			cave.damage_tile(colider)
+			cave.damage_tile(colider,damage)
 
 		else: return
 	if Input.is_action_pressed("rmb"):

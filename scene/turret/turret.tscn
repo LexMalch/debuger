@@ -1,7 +1,55 @@
-[gd_scene format=3 uid="uid://6go47k6x85wm"]
+[gd_scene load_steps=10 format=3 uid="uid://cnpsmb5yym4wi"]
+
+[ext_resource type="Texture2D" uid="uid://dmatlb5kv0sni" path="res://scene/turret/sprite/turret.png" id="1_btklt"]
+[ext_resource type="Texture2D" uid="uid://cihvdfjang0tf" path="res://scene/turret/sprite/turret1.png" id="3_n7iuj"]
+[ext_resource type="Texture2D" uid="uid://b6fd646cu7l3y" path="res://scene/turret/sprite/turret2.png" id="4_cln5p"]
+[ext_resource type="Texture2D" uid="uid://dkjs0oxb74i4r" path="res://scene/turret/sprite/turret3.png" id="5_kdvut"]
+[ext_resource type="Texture2D" uid="uid://dl02btu3oawxm" path="res://scene/turret/sprite/turret4.png" id="6_gvkw7"]
+[ext_resource type="Texture2D" uid="uid://ct342wpv2qtht" path="res://scene/turret/sprite/turret5.png" id="7_2wpkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ciym"]
+size = Vector2(32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yfb4x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_n7iuj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cln5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kdvut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gvkw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2wpkg")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n7iuj"]
+radius = 80.0
 
 [node name="Turret" type="StaticBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Turret_base_collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7ciym")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Turret_base" type="Sprite2D" parent="."]
+texture = ExtResource("1_btklt")
+
+[node name="Turret_tower" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yfb4x")
+animation = &"shoot"
+
+[node name="Shoot_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shoot_area"]
+shape = SubResource("CircleShape2D_n7iuj")
+debug_color = Color(0.408601, 0.60684, 9.62615e-07, 0.42)

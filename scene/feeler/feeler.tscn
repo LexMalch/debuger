@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://fin3uilmudga"]
+[gd_scene load_steps=28 format=3 uid="uid://fin3uilmudga"]
 
 [ext_resource type="Texture2D" uid="uid://bwag1n1wpwcl2" path="res://scene/feeler/sprite/feeler1.png" id="1_b1ju3"]
 [ext_resource type="Script" uid="uid://ckdoi7c3kty5p" path="res://scene/feeler/feeler.gd" id="1_p5h41"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cr5j6uqjthn4h" path="res://scene/feeler/sprite/feller_interact6.png" id="18_04vjn"]
 [ext_resource type="Texture2D" uid="uid://b0wr0u8jd1bg2" path="res://scene/feeler/sprite/feller_interact7.png" id="19_x6j3a"]
 [ext_resource type="Texture2D" uid="uid://wtv10u4hftle" path="res://scene/feeler/sprite/feller_interact8.png" id="20_ev0xb"]
+[ext_resource type="Texture2D" uid="uid://41bpggp1yiby" path="res://scene/feeler/sprite/feeler.png" id="22_tl24g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rsabo"]
 animations = [{
@@ -96,40 +97,51 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sia5j"]
-size = Vector2(16, 32)
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tl24g"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5h41"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1ju3"]
 radius = 96.0052
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5h41"]
 
 [node name="Feeler" type="StaticBody2D"]
 script = ExtResource("1_p5h41")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_rsabo")
-animation = &"build_up"
-frame = 11
-frame_progress = 1.0
+animation = &"interact"
+
+[node name="New_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("22_tl24g")
 
 [node name="Build_collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_sia5j")
 
-[node name="Connection_area" type="Area2D" parent="."]
-visible = false
-collision_layer = 0
+[node name="Placement_area" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Connection_area"]
-position = Vector2(0, 7)
-shape = SubResource("CircleShape2D_b1ju3")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placement_area"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_tl24g")
+debug_color = Color(0.258424, 0.634363, 0, 0.42)
 
 [node name="Feeler_area" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Feeler_area"]
 position = Vector2(0, 8)
 scale = Vector2(1.48, 1.48)
 shape = SubResource("RectangleShape2D_p5h41")
+
+[node name="Connection_area" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Connection_area"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_b1ju3")
 
 [connection signal="body_entered" from="Feeler_area" to="." method="_on_feeler_area_body_entered"]
 [connection signal="body_exited" from="Feeler_area" to="." method="_on_feeler_area_body_exited"]
