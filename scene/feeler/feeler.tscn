@@ -63,7 +63,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"build_up",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -108,13 +108,15 @@ script = ExtResource("1_p5h41")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rsabo")
-animation = &"interact"
-frame = 1
+animation = &"build_up"
+frame = 11
+frame_progress = 1.0
 
 [node name="Build_collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sia5j")
 
 [node name="Connection_area" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Connection_area"]
@@ -122,6 +124,7 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_b1ju3")
 
 [node name="Feeler_area" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Feeler_area"]
 position = Vector2(0, 8)

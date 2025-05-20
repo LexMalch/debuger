@@ -13,8 +13,6 @@ config_version=5
 config/name="Debuger"
 run/main_scene="uid://b6nyv11ur5obw"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-run/max_fps=144
-config/icon="res://art/icon.svg"
 
 [autoload]
 

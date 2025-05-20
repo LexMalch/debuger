@@ -1,14 +1,14 @@
 [gd_scene load_steps=22 format=4 uid="uid://b6nyv11ur5obw"]
 
 [ext_resource type="Shader" uid="uid://cgdvld361dd5t" path="res://scene/main/glitch.gdshader" id="1_si3g0"]
-[ext_resource type="Texture2D" uid="uid://bdiyibao454u2" path="res://art/tiles/tileset2.png" id="2_qtsyf"]
-[ext_resource type="Texture2D" uid="uid://to50o1nqolm2" path="res://art/tiles/tileset.png" id="2_siuy0"]
+[ext_resource type="Texture2D" uid="uid://bdiyibao454u2" path="res://art/pics/tileset2.png" id="2_qtsyf"]
+[ext_resource type="Texture2D" uid="uid://to50o1nqolm2" path="res://art/pics/tileset.png" id="2_siuy0"]
 [ext_resource type="Script" uid="uid://wq4x0hjane70" path="res://scene/main/cave.gd" id="3_siuy0"]
 [ext_resource type="PackedScene" uid="uid://bhxix5rdtca7p" path="res://scene/player/player.tscn" id="4_b8g54"]
 [ext_resource type="PackedScene" uid="uid://b4prfxi5j7xur" path="res://scene/generator/generator.tscn" id="4_qtsyf"]
 [ext_resource type="PackedScene" uid="uid://fin3uilmudga" path="res://scene/feeler/feeler.tscn" id="6_siuy0"]
-[ext_resource type="Texture2D" uid="uid://dqpcj1awtuhy4" path="res://art/Sprite-0005.png" id="7_b8g54"]
-[ext_resource type="Texture2D" uid="uid://cl4p6eyl5u1hh" path="res://art/0.png" id="8_onf7c"]
+[ext_resource type="Texture2D" uid="uid://dqpcj1awtuhy4" path="res://art/pics/Sprite-0005.png" id="7_b8g54"]
+[ext_resource type="Texture2D" uid="uid://cl4p6eyl5u1hh" path="res://art/pics/0.png" id="8_onf7c"]
 [ext_resource type="Shader" uid="uid://c4csolk8a1q6q" path="res://scene/main/tv.gdshader" id="10_pidc3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pidc3"]
@@ -190,8 +190,8 @@ shader_parameter/scanlines_opacity = 0.158
 shader_parameter/scanlines_width = 0.103
 shader_parameter/grille_opacity = 0.172
 shader_parameter/resolution = Vector2(1280, 1280)
-shader_parameter/pixelate = true
-shader_parameter/roll = true
+shader_parameter/pixelate = false
+shader_parameter/roll = false
 shader_parameter/roll_speed = 1.0
 shader_parameter/roll_size = 5.977
 shader_parameter/roll_variation = 1.689
