@@ -5,3 +5,5 @@
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="BuildingComponent" type="Node2D" parent="."]
