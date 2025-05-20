@@ -13,6 +13,7 @@ func _on_feeler_area_body_entered(body: Node2D) -> void:
 
 
 
+
 func _on_feeler_area_body_exited(body: Node2D) -> void:
 	player_inside  = false
 	if	zalupa_opend == true:

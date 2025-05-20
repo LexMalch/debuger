@@ -1,9 +1,9 @@
 extends CharacterBody2D
-var max_speed = 200
+var max_speed = 100
 @onready var cave: = $/root/Main/Cave
 var damage = 1 
 
-func _process(delta):
+func _physics_process(delta: float) -> void:
 	var direction = movement_vector().normalized()
 	velocity = max_speed * direction * delta * max_speed
 	if velocity.x > 0:
