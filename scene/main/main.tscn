@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dqpcj1awtuhy4" path="res://art/pics/Sprite-0005.png" id="7_b8g54"]
 [ext_resource type="Texture2D" uid="uid://cl4p6eyl5u1hh" path="res://art/pics/0.png" id="8_onf7c"]
 [ext_resource type="Shader" uid="uid://c4csolk8a1q6q" path="res://scene/main/tv.gdshader" id="10_pidc3"]
-[ext_resource type="PackedScene" uid="uid://cnpsmb5yym4wi" path="res://scene/turret/turret.tscn" id="11_snrr3"]
+[ext_resource type="PackedScene" uid="uid://dnc58tnt2s82t" path="res://scene/turret/turret.tscn" id="11_snrr3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pidc3"]
 shader = ExtResource("1_si3g0")
@@ -356,4 +356,4 @@ offset_right = 1426.0
 offset_bottom = 983.0
 
 [node name="Turret" parent="." instance=ExtResource("11_snrr3")]
-position = Vector2(352, -64)
+position = Vector2(256, -64)
