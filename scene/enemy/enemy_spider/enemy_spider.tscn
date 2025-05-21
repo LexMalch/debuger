@@ -1,0 +1,78 @@
+[gd_scene load_steps=17 format=3 uid="uid://bcdvhgcf6nsvj"]
+
+[ext_resource type="Texture2D" uid="uid://c8v75e422ocys" path="res://scene/enemy/enemy_spider/sprite/enemy1.png" id="1_1gi5d"]
+[ext_resource type="Texture2D" uid="uid://cn635i0cgtdmo" path="res://scene/enemy/enemy_spider/sprite/enemy_run1.png" id="2_a5p60"]
+[ext_resource type="Texture2D" uid="uid://b7uqg23ele217" path="res://scene/enemy/enemy_spider/sprite/enemy_run2.png" id="3_sb5lo"]
+[ext_resource type="Texture2D" uid="uid://dowic7cs41sru" path="res://scene/enemy/enemy_spider/sprite/enemy_run3.png" id="4_ew44q"]
+[ext_resource type="Texture2D" uid="uid://7l571m26hyx1" path="res://scene/enemy/enemy_spider/sprite/enemy_run4.png" id="5_kofde"]
+[ext_resource type="Texture2D" uid="uid://dw0l8g58p21ds" path="res://scene/enemy/enemy_spider/sprite/enemy_run5.png" id="6_g3fb0"]
+[ext_resource type="Texture2D" uid="uid://b82bi8rfmakcy" path="res://scene/enemy/enemy_spider/sprite/enemy_run6.png" id="7_otevq"]
+[ext_resource type="Texture2D" uid="uid://dotofehsgyc06" path="res://scene/enemy/enemy_spider/sprite/enemy_run7.png" id="8_lsu76"]
+[ext_resource type="Texture2D" uid="uid://c1wi6svv3yx08" path="res://scene/enemy/enemy_spider/sprite/enemy_run8.png" id="9_5cswn"]
+[ext_resource type="Texture2D" uid="uid://vlwuf7areqbc" path="res://scene/enemy/enemy_spider/sprite/enemy_run9.png" id="10_dhyav"]
+[ext_resource type="Texture2D" uid="uid://ceatl81l1dnjx" path="res://scene/enemy/enemy_spider/sprite/enemy_run10.png" id="11_1ldri"]
+[ext_resource type="Texture2D" uid="uid://0xpes1bm4odt" path="res://scene/enemy/enemy_spider/sprite/enemy_run11.png" id="12_5cb2c"]
+[ext_resource type="Texture2D" uid="uid://ig2dpp8fbq2p" path="res://scene/enemy/enemy_spider/sprite/enemy_run12.png" id="13_niie0"]
+[ext_resource type="Texture2D" uid="uid://gsvyfquae81t" path="res://scene/enemy/enemy_spider/sprite/enemy_run13.png" id="14_xsqym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_370cy"]
+size = Vector2(32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_84obg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a5p60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sb5lo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ew44q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kofde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g3fb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_otevq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lsu76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5cswn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dhyav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1ldri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5cb2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_niie0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xsqym")
+}],
+"loop": false,
+"name": &"run",
+"speed": 20.0
+}]
+
+[node name="Enemy_spider" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_370cy")
+
+[node name="Spider_body" type="Sprite2D" parent="."]
+texture = ExtResource("1_1gi5d")
+
+[node name="Spider_legs" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_84obg")
+animation = &"run"
