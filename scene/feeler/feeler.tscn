@@ -108,6 +108,7 @@ size = Vector2(32, 32)
 radius = 96.0052
 
 [node name="Feeler" type="StaticBody2D"]
+collision_layer = 2
 script = ExtResource("1_p5h41")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]

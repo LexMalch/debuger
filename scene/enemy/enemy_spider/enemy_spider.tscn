@@ -1,78 +1,134 @@
-[gd_scene load_steps=17 format=3 uid="uid://bcdvhgcf6nsvj"]
+[gd_scene load_steps=18 format=3 uid="uid://bcdvhgcf6nsvj"]
 
-[ext_resource type="Texture2D" uid="uid://c8v75e422ocys" path="res://scene/enemy/enemy_spider/sprite/enemy1.png" id="1_1gi5d"]
-[ext_resource type="Texture2D" uid="uid://cn635i0cgtdmo" path="res://scene/enemy/enemy_spider/sprite/enemy_run1.png" id="2_a5p60"]
-[ext_resource type="Texture2D" uid="uid://b7uqg23ele217" path="res://scene/enemy/enemy_spider/sprite/enemy_run2.png" id="3_sb5lo"]
-[ext_resource type="Texture2D" uid="uid://dowic7cs41sru" path="res://scene/enemy/enemy_spider/sprite/enemy_run3.png" id="4_ew44q"]
-[ext_resource type="Texture2D" uid="uid://7l571m26hyx1" path="res://scene/enemy/enemy_spider/sprite/enemy_run4.png" id="5_kofde"]
-[ext_resource type="Texture2D" uid="uid://dw0l8g58p21ds" path="res://scene/enemy/enemy_spider/sprite/enemy_run5.png" id="6_g3fb0"]
-[ext_resource type="Texture2D" uid="uid://b82bi8rfmakcy" path="res://scene/enemy/enemy_spider/sprite/enemy_run6.png" id="7_otevq"]
-[ext_resource type="Texture2D" uid="uid://dotofehsgyc06" path="res://scene/enemy/enemy_spider/sprite/enemy_run7.png" id="8_lsu76"]
-[ext_resource type="Texture2D" uid="uid://c1wi6svv3yx08" path="res://scene/enemy/enemy_spider/sprite/enemy_run8.png" id="9_5cswn"]
-[ext_resource type="Texture2D" uid="uid://vlwuf7areqbc" path="res://scene/enemy/enemy_spider/sprite/enemy_run9.png" id="10_dhyav"]
-[ext_resource type="Texture2D" uid="uid://ceatl81l1dnjx" path="res://scene/enemy/enemy_spider/sprite/enemy_run10.png" id="11_1ldri"]
-[ext_resource type="Texture2D" uid="uid://0xpes1bm4odt" path="res://scene/enemy/enemy_spider/sprite/enemy_run11.png" id="12_5cb2c"]
-[ext_resource type="Texture2D" uid="uid://ig2dpp8fbq2p" path="res://scene/enemy/enemy_spider/sprite/enemy_run12.png" id="13_niie0"]
-[ext_resource type="Texture2D" uid="uid://gsvyfquae81t" path="res://scene/enemy/enemy_spider/sprite/enemy_run13.png" id="14_xsqym"]
+[ext_resource type="Script" uid="uid://bhocjx5tn612o" path="res://scene/enemy/enemy_spider/enemy_spider.gd" id="1_4af2y"]
+[ext_resource type="Texture2D" uid="uid://d3bytl3aiwopp" path="res://scene/enemy/enemy_spider/enemy_body1.png" id="2_4af2y"]
+[ext_resource type="Texture2D" uid="uid://x1wj12r426o6" path="res://scene/enemy/enemy_spider/enemy_run1.png" id="3_w86bc"]
+[ext_resource type="Texture2D" uid="uid://bev6gch0x3akp" path="res://scene/enemy/enemy_spider/enemy_run2.png" id="4_l2wxs"]
+[ext_resource type="Texture2D" uid="uid://cdnkvj8qafe" path="res://scene/enemy/enemy_spider/enemy_run3.png" id="5_dw55x"]
+[ext_resource type="Texture2D" uid="uid://dc6xibaxamlxw" path="res://scene/enemy/enemy_spider/enemy_run4.png" id="6_y2tou"]
+[ext_resource type="Texture2D" uid="uid://cntmsq7dt17ap" path="res://scene/enemy/enemy_spider/enemy_run5.png" id="7_kv1aw"]
+[ext_resource type="Texture2D" uid="uid://bosbewllttnf7" path="res://scene/enemy/enemy_spider/enemy_run6.png" id="8_0sus5"]
+[ext_resource type="Texture2D" uid="uid://ehlotgisnnx6" path="res://scene/enemy/enemy_spider/enemy_run7.png" id="9_3g7yy"]
+[ext_resource type="Texture2D" uid="uid://hpssoth73l8p" path="res://scene/enemy/enemy_spider/enemy_run8.png" id="10_vmfj0"]
+[ext_resource type="Texture2D" uid="uid://bio2qej06ruby" path="res://scene/enemy/enemy_spider/enemy_byte.png" id="11_n75ol"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_370cy"]
-size = Vector2(32, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_4af2y"]
+radius = 14.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_84obg"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_a5p60")
+"texture": ExtResource("3_w86bc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_sb5lo")
+"texture": ExtResource("4_l2wxs")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_ew44q")
+"texture": ExtResource("5_dw55x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_kofde")
+"texture": ExtResource("6_y2tou")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_g3fb0")
+"texture": ExtResource("7_kv1aw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_otevq")
+"texture": ExtResource("8_0sus5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_lsu76")
+"texture": ExtResource("9_3g7yy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_5cswn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_dhyav")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_1ldri")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_5cb2c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_niie0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_xsqym")
+"texture": ExtResource("10_vmfj0")
 }],
-"loop": false,
+"loop": true,
 "name": &"run",
-"speed": 20.0
+"speed": 13.0
 }]
 
-[node name="Enemy_spider" type="Area2D"]
+[sub_resource type="Animation" id="Animation_kv1aw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y2tou"]
+resource_name = "bite"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(5, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0sus5"]
+_data = {
+&"RESET": SubResource("Animation_kv1aw"),
+&"bite": SubResource("Animation_y2tou")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3g7yy"]
+
+[node name="Enemy_spider" type="CharacterBody2D" groups=["player"]]
+collision_layer = 16
+collision_mask = 2
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_4af2y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_370cy")
+shape = SubResource("CircleShape2D_4af2y")
 
 [node name="Spider_body" type="Sprite2D" parent="."]
-texture = ExtResource("1_1gi5d")
+texture = ExtResource("2_4af2y")
 
 [node name="Spider_legs" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_84obg")
 animation = &"run"
+autoplay = "run"
+
+[node name="Spider_head" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="Head" type="Sprite2D" parent="Spider_head"]
+texture = ExtResource("11_n75ol")
+
+[node name="Bite" type="AnimationPlayer" parent="Spider_head"]
+libraries = {
+&"": SubResource("AnimationLibrary_0sus5")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spider_head"]
+position = Vector2(6, 0)
+shape = SubResource("RectangleShape2D_3g7yy")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+simplify_path = true
+debug_enabled = true
+debug_path_custom_color = Color(1, 0.34902, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="area_entered" from="Spider_head" to="." method="_on_spider_head_area_entered"]
+[connection signal="area_exited" from="Spider_head" to="." method="_on_spider_head_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

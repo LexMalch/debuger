@@ -174,7 +174,6 @@ fill_from = Vector2(0.5, 0.482906)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 self_modulate = Color(1, 1, 7.735, 1)
-position = Vector2(176, 352)
 collision_mask = 7
 script = ExtResource("1_jm5j8")
 
