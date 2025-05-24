@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://bcdvhgcf6nsvj"]
+[gd_scene load_steps=19 format=3 uid="uid://bcdvhgcf6nsvj"]
 
-[ext_resource type="Script" path="res://scene/enemy/enemy_spider/enemy_spider.gd" id="1_4af2y"]
+[ext_resource type="Script" uid="uid://bhocjx5tn612o" path="res://scene/enemy/enemy_spider/enemy_spider.gd" id="1_4af2y"]
 [ext_resource type="Texture2D" uid="uid://d3bytl3aiwopp" path="res://scene/enemy/enemy_spider/enemy_body1.png" id="2_4af2y"]
 [ext_resource type="Texture2D" uid="uid://x1wj12r426o6" path="res://scene/enemy/enemy_spider/enemy_run1.png" id="3_w86bc"]
 [ext_resource type="Texture2D" uid="uid://bev6gch0x3akp" path="res://scene/enemy/enemy_spider/enemy_run2.png" id="4_l2wxs"]
@@ -87,6 +87,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3g7yy"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_w86bc"]
+radius = 611.433
+
 [node name="Enemy_spider" type="CharacterBody2D" groups=["player"]]
 collision_layer = 16
 collision_mask = 2
@@ -107,6 +110,7 @@ autoplay = "run"
 
 [node name="Spider_head" type="Area2D" parent="."]
 collision_layer = 16
+collision_mask = 3
 
 [node name="Head" type="Sprite2D" parent="Spider_head"]
 texture = ExtResource("11_n75ol")
@@ -125,10 +129,25 @@ simplify_path = true
 debug_enabled = true
 debug_path_custom_color = Color(1, 0.34902, 0, 1)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
+[node name="Look_Timer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
+
+[node name="Detection_area" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_area"]
+shape = SubResource("CircleShape2D_w86bc")
+
+[node name="Attack_Timer" type="Timer" parent="."]
 
 [connection signal="area_entered" from="Spider_head" to="." method="_on_spider_head_area_entered"]
 [connection signal="area_exited" from="Spider_head" to="." method="_on_spider_head_area_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Spider_head" to="." method="_on_spider_head_body_entered"]
+[connection signal="body_exited" from="Spider_head" to="." method="_on_spider_head_body_exited"]
+[connection signal="timeout" from="Look_Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Detection_area" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="Detection_area" to="." method="_on_detection_area_area_exited"]
+[connection signal="body_entered" from="Detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="Detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="Attack_Timer" to="." method="_on_attack_timer_timeout"]

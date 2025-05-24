@@ -3,6 +3,7 @@ var player_inside  = false
 var zalupa_opend = false
 var building_sprite= preload("res://scene/feeler/sprite/feeler.png")
 var price = 10
+var hp = 10
 func  _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and player_inside  == true and zalupa_opend == false:
 		zalupa_opend = true
@@ -21,3 +22,8 @@ func _on_feeler_area_body_exited(body: Node2D) -> void:
 		$Sprite.play_backwards("interact")
 
 	zalupa_opend = false
+func take_damage(damage):
+	hp -=damage
+	print(hp)
+	if hp <=0:
+		queue_free()

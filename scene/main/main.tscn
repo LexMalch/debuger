@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://b6nyv11ur5obw"]
+[gd_scene load_steps=49 format=4 uid="uid://b6nyv11ur5obw"]
 
 [ext_resource type="Shader" uid="uid://cgdvld361dd5t" path="res://scene/main/glitch.gdshader" id="1_si3g0"]
 [ext_resource type="Texture2D" uid="uid://bdiyibao454u2" path="res://art/pics/tileset2.png" id="2_qtsyf"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dqpcj1awtuhy4" path="res://art/pics/Sprite-0005.png" id="7_b8g54"]
 [ext_resource type="Texture2D" uid="uid://cl4p6eyl5u1hh" path="res://art/pics/0.png" id="8_onf7c"]
 [ext_resource type="Shader" uid="uid://c4csolk8a1q6q" path="res://scene/main/tv.gdshader" id="10_pidc3"]
+[ext_resource type="PackedScene" uid="uid://dnc58tnt2s82t" path="res://scene/turret/turret.tscn" id="11_snrr3"]
+[ext_resource type="PackedScene" uid="uid://bcdvhgcf6nsvj" path="res://scene/enemy/enemy_spider/enemy_spider.tscn" id="12_36wa8"]
 [ext_resource type="PackedScene" uid="uid://cywlduvi614dl" path="res://scene/BuildingSystem/building_system.tscn" id="13_n5o2v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pidc3"]
@@ -483,6 +485,7 @@ z_index = 10
 position = Vector2(272, 80)
 
 [node name="Generator" parent="." instance=ExtResource("4_qtsyf")]
+unique_name_in_owner = true
 position = Vector2(384, 56)
 
 [node name="BackGround" type="ParallaxBackground" parent="."]
@@ -544,3 +547,9 @@ offset_right = 1441.0
 offset_bottom = 991.0
 
 [node name="BuildingSystem" parent="." instance=ExtResource("13_n5o2v")]
+
+[node name="Enemy_spider" parent="." instance=ExtResource("12_36wa8")]
+position = Vector2(226, -378)
+
+[node name="Turret" parent="." instance=ExtResource("11_snrr3")]
+position = Vector2(352, -33)

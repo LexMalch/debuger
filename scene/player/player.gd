@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var max_speed = 100
 @onready var cave: = $/root/Main/Cave
-var damage = 3
+var damage = 5
 var	build_mode = false
 var	fight_mode = false
 var	dig_mode = false 

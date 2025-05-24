@@ -1,5 +1,5 @@
 extends StaticBody2D
-
+var hp = 40
 
 
 func _on_generator_area_body_entered(body: Node2D) -> void:
@@ -24,4 +24,8 @@ func _on_buildup_area_body_entered(body: Node2D) -> void:
 			Globals.dollors+=1
 			print("dollars= ",Globals.dollors)
 		body.explode()
-		
+func take_damage(damage):
+	hp -=damage
+	print(hp)
+	if hp <=0:
+		queue_free()	
