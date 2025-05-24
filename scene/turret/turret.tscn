@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnc58tnt2s82t"]
+[gd_scene load_steps=10 format=3 uid="uid://dnc58tnt2s82t"]
 
+[ext_resource type="Script" uid="uid://dkt25th7gk35s" path="res://scene/turret/turret.gd" id="1_n7iuj"]
 [ext_resource type="Texture2D" uid="uid://dmatlb5kv0sni" path="res://scene/turret/sprite/turret.png" id="1_yfb4x"]
 [ext_resource type="Texture2D" uid="uid://cihvdfjang0tf" path="res://scene/turret/sprite/turret1.png" id="2_n7iuj"]
 [ext_resource type="Texture2D" uid="uid://b6fd646cu7l3y" path="res://scene/turret/sprite/turret2.png" id="3_cln5p"]
@@ -36,8 +37,9 @@ animations = [{
 [node name="Turret" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 0
+script = ExtResource("1_n7iuj")
 
-[node name="Turret_base" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_yfb4x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

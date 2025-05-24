@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://bcdvhgcf6nsvj"]
 
-[ext_resource type="Script" uid="uid://bhocjx5tn612o" path="res://scene/enemy/enemy_spider/enemy_spider.gd" id="1_4af2y"]
+[ext_resource type="Script" path="res://scene/enemy/enemy_spider/enemy_spider.gd" id="1_4af2y"]
 [ext_resource type="Texture2D" uid="uid://d3bytl3aiwopp" path="res://scene/enemy/enemy_spider/enemy_body1.png" id="2_4af2y"]
 [ext_resource type="Texture2D" uid="uid://x1wj12r426o6" path="res://scene/enemy/enemy_spider/enemy_run1.png" id="3_w86bc"]
 [ext_resource type="Texture2D" uid="uid://bev6gch0x3akp" path="res://scene/enemy/enemy_spider/enemy_run2.png" id="4_l2wxs"]

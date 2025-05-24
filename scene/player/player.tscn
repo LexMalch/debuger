@@ -217,3 +217,11 @@ shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.168627)
 texture = SubResource("GradientTexture2D_nqjai")
 texture_scale = 3.0
+
+[node name="Tool" type="Sprite2D" parent="."]
+position = Vector2(11, -9)
+scale = Vector2(0.5, 0.5)
+
+[node name="dig_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="dig_timer" to="." method="_on_dig_timer_timeout"]

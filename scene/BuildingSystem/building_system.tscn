@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cywlduvi614dl"]
+
+[ext_resource type="Script" uid="uid://csa5i66gtrjpy" path="res://scene/BuildingSystem/building_system.gd" id="1_hggrn"]
+
+[node name="BuildingSystem" type="Node2D"]
+script = ExtResource("1_hggrn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.470588)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.603922)
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(-11, -9, 2, 11, 6, 7, 3, -1, 12, -6, 7, -12, 0, -6, -13, 3, -9, 9, 3, -3, -6, -13)

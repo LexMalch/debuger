@@ -117,13 +117,14 @@ sprite_frames = SubResource("SpriteFrames_rsabo")
 animation = &"interact"
 
 [node name="New_sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
 texture = ExtResource("22_tl24g")
 
 [node name="Build_collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_sia5j")
 
 [node name="Placement_area" type="Area2D" parent="."]
+position = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Placement_area"]
 position = Vector2(0, 8)
@@ -131,6 +132,7 @@ shape = SubResource("RectangleShape2D_tl24g")
 debug_color = Color(0.258424, 0.634363, 0, 0.42)
 
 [node name="Feeler_area" type="Area2D" parent="."]
+position = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Feeler_area"]
 position = Vector2(0, 8)
@@ -138,10 +140,11 @@ scale = Vector2(1.48, 1.48)
 shape = SubResource("RectangleShape2D_p5h41")
 
 [node name="Connection_area" type="Area2D" parent="."]
+position = Vector2(0, -8)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Connection_area"]
-position = Vector2(0, 7)
+position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_b1ju3")
 
 [connection signal="body_entered" from="Feeler_area" to="." method="_on_feeler_area_body_entered"]
