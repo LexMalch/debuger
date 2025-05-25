@@ -2,7 +2,7 @@ extends Node2D
 #@export var walls = preload()
 @export var turret = preload("res://scene/turret/turret.tscn")
 @export var feeler = preload("res://scene/feeler/feeler.tscn")
-var busy_plase = []
+
 var builds = []
 var curr_build
 var pointer: = 0
@@ -53,34 +53,30 @@ func get_pos():
 		var mouse_local = %floor.get_local_mouse_position()
 		var tile_coords = %floor.local_to_map(mouse_local)
 		var curr_data   = %floor.get_cell_atlas_coords(tile_coords)
-		var diff = Vector2(0,0)
 		var p = %floor.to_global(%floor.map_to_local(tile_coords))
 		if curr_data == Vector2i(2,0) or curr_data == Vector2i(0,0) or curr_data == Vector2i(0,2) or curr_data == Vector2i(2,2):
-			diff = Vector2(8,8)
 			curr_pos = p 
 		elif curr_data == Vector2i(3,0)or curr_data == Vector2i(1,0)or curr_data == Vector2i(1,2)or curr_data == Vector2i(3,2):
-			diff  = Vector2(-8,8)
 			curr_pos = p 
 		elif curr_data == Vector2i(2,1)or curr_data == Vector2i(0,1)or curr_data == Vector2i(0,3)or curr_data == Vector2i(2,3):
-			diff  = Vector2(8,-8)
 			curr_pos = p 
 		elif curr_data == Vector2i(3,1)or curr_data == Vector2i(1,1)or curr_data == Vector2i(1,3)or curr_data == Vector2i(3,3):
-			diff  = Vector2(-8,-8)
 			curr_pos = p 
 func check_building_status():
 	if %floor.get_cell_tile_data(%floor.local_to_map(%floor.get_local_mouse_position())):
-		if %floor.get_cell_tile_data(%floor.local_to_map(%floor.get_local_mouse_position())).get_custom_data("blue") == true and not (curr_pos in busy_plase):
+		if %floor.get_cell_tile_data(%floor.local_to_map(%floor.get_local_mouse_position())).get_custom_data("blue") == true and not (curr_pos in Globals.busy_plase):
 			$Polygon2D.visible = false
 			building_avalible = true
 		else:
 			$Polygon2D.visible = true
 			building_avalible = false
 func bild():
+	curr_build_scene = curr_build.instantiate()
 	if %Player.build_mode == true and building_avalible == true and curr_build_scene.price <= Globals.dollors:
 		Globals.dollors -=curr_build_scene.price
 		curr_build_scene = curr_build.instantiate()
 		curr_build_scene.global_position = curr_pos
-		busy_plase.append(curr_build_scene.global_position)
+		Globals.busy_plase.append(curr_build_scene.global_position)
 		add_child(curr_build_scene)
 		
 
