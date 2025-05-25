@@ -125,6 +125,7 @@ position = Vector2(6, 0)
 shape = SubResource("RectangleShape2D_3g7yy")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_max_distance = 200.0
 simplify_path = true
 debug_enabled = true
 debug_path_custom_color = Color(1, 0.34902, 0, 1)

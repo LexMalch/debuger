@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bhxix5rdtca7p"]
+[gd_scene load_steps=37 format=3 uid="uid://bhxix5rdtca7p"]
 
 [ext_resource type="Script" uid="uid://dyota6iuux5kf" path="res://scene/player/player.gd" id="1_jm5j8"]
 [ext_resource type="Texture2D" uid="uid://d2vyky0famktu" path="res://art/player_sorite/player_idle1.png" id="2_7hik5"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cuty3k1d5l4dj" path="res://art/player_sorite/player_up6.png" id="23_8gr2b"]
 [ext_resource type="Texture2D" uid="uid://ctaghglah3b3a" path="res://art/player_sorite/player_up7.png" id="24_vl8ci"]
 [ext_resource type="Texture2D" uid="uid://bxxn0uffljwxv" path="res://art/player_sorite/player_up8.png" id="25_ieltc"]
+[ext_resource type="PackedScene" uid="uid://ekti8rrglr4i" path="res://scene/laser/laser.tscn" id="26_04bvi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fddr8"]
 animations = [{
@@ -223,5 +224,7 @@ position = Vector2(11, -9)
 scale = Vector2(0.5, 0.5)
 
 [node name="dig_timer" type="Timer" parent="."]
+
+[node name="Laser" parent="." instance=ExtResource("26_04bvi")]
 
 [connection signal="timeout" from="dig_timer" to="." method="_on_dig_timer_timeout"]
