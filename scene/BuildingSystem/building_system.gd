@@ -47,7 +47,7 @@ func _input(event):
 		curr_build_scene = curr_build.instantiate()
 		curr_sprite = curr_build_scene.building_sprite
 		$Sprite2D.texture = curr_sprite
-	if event.is_action_pressed("use"):
+	if event.is_action_pressed("lmb"):
 		bild()
 func get_pos():
 		var mouse_local = %floor.get_local_mouse_position()
@@ -57,16 +57,16 @@ func get_pos():
 		var p = %floor.to_global(%floor.map_to_local(tile_coords))
 		if curr_data == Vector2i(2,0) or curr_data == Vector2i(0,0) or curr_data == Vector2i(0,2) or curr_data == Vector2i(2,2):
 			diff = Vector2(8,8)
-			curr_pos = p + diff
+			curr_pos = p 
 		elif curr_data == Vector2i(3,0)or curr_data == Vector2i(1,0)or curr_data == Vector2i(1,2)or curr_data == Vector2i(3,2):
 			diff  = Vector2(-8,8)
-			curr_pos = p + diff
+			curr_pos = p 
 		elif curr_data == Vector2i(2,1)or curr_data == Vector2i(0,1)or curr_data == Vector2i(0,3)or curr_data == Vector2i(2,3):
 			diff  = Vector2(8,-8)
-			curr_pos = p + diff
+			curr_pos = p 
 		elif curr_data == Vector2i(3,1)or curr_data == Vector2i(1,1)or curr_data == Vector2i(1,3)or curr_data == Vector2i(3,3):
 			diff  = Vector2(-8,-8)
-			curr_pos = p + diff
+			curr_pos = p 
 func check_building_status():
 	if %floor.get_cell_tile_data(%floor.local_to_map(%floor.get_local_mouse_position())):
 		if %floor.get_cell_tile_data(%floor.local_to_map(%floor.get_local_mouse_position())).get_custom_data("blue") == true and not (curr_pos in busy_plase):

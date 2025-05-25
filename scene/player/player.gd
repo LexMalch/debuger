@@ -47,6 +47,7 @@ func _physics_process(delta: float) -> void:
 		if dig_mode ==true and dig_av== true:	
 			if $RayCast2D.get_collider() and $RayCast2D.get_collider().get("name") == "Cave":
 				var colider = $RayCast2D.get_collider_rid()
+				print(colider)
 				cave.damage_tile(colider,damage)
 				dig_av= false
 				$dig_timer.start()
