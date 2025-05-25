@@ -216,7 +216,7 @@ target_position = Vector2(0, 18.0791)
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.168627)
 texture = SubResource("GradientTexture2D_nqjai")
-texture_scale = 3.0
+texture_scale = 8.83
 
 [node name="Tool" type="Sprite2D" parent="."]
 position = Vector2(11, -9)

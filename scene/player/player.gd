@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		$Camera2D.zoom-= Vector2(0.1,0.1)
 	if Input.is_action_just_pressed("zoom_reset"):
 		$Camera2D.zoom = Vector2(1.75,1.75)
-	if Input.is_action_pressed("use"):
+	if Input.is_action_pressed("lmb"):
 		if dig_mode ==true and dig_av== true:	
 			if $RayCast2D.get_collider() and $RayCast2D.get_collider().get("name") == "Cave":
 				var colider = $RayCast2D.get_collider_rid()

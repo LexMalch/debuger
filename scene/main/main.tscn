@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://b6nyv11ur5obw"]
+[gd_scene load_steps=50 format=4 uid="uid://b6nyv11ur5obw"]
 
 [ext_resource type="Shader" uid="uid://cgdvld361dd5t" path="res://scene/main/glitch.gdshader" id="1_si3g0"]
 [ext_resource type="Texture2D" uid="uid://bdiyibao454u2" path="res://art/pics/tileset2.png" id="2_qtsyf"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dnc58tnt2s82t" path="res://scene/turret/turret.tscn" id="11_snrr3"]
 [ext_resource type="PackedScene" uid="uid://bcdvhgcf6nsvj" path="res://scene/enemy/enemy_spider/enemy_spider.tscn" id="12_36wa8"]
 [ext_resource type="PackedScene" uid="uid://cywlduvi614dl" path="res://scene/BuildingSystem/building_system.tscn" id="13_n5o2v"]
+[ext_resource type="PackedScene" uid="uid://far2i8e68k3v" path="res://scene/laser/laser.tscn" id="13_ruc3j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pidc3"]
 shader = ExtResource("1_si3g0")
@@ -553,3 +554,5 @@ position = Vector2(226, -378)
 
 [node name="Turret" parent="." instance=ExtResource("11_snrr3")]
 position = Vector2(352, -33)
+
+[node name="Laser" parent="." instance=ExtResource("13_ruc3j")]
