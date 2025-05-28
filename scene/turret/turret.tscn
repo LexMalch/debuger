@@ -68,7 +68,7 @@ shape = SubResource("CircleShape2D_fgfb3")
 [node name="Turret_tower" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cakeb")
 animation = &"shoot"
-frame_progress = 0.306884
+frame_progress = 0.279545
 
 [node name="DetactionArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -82,6 +82,7 @@ autostart = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 visible = false
+z_index = 1
 offset_left = -13.0
 offset_top = 14.0
 offset_right = 14.0
@@ -94,7 +95,12 @@ show_percentage = false
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="HealingTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="body_entered" from="DetactionArea" to="." method="_on_detaction_area_body_entered"]
 [connection signal="body_exited" from="DetactionArea" to="." method="_on_detaction_area_body_exited"]
 [connection signal="timeout" from="SootingTimer" to="." method="_on_sooting_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="HealingTimer" to="." method="_on_healing_timer_timeout"]

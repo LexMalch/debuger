@@ -16,4 +16,4 @@ func _on_spawn_timer_timeout() -> void:
 		await get_tree().create_timer(0.2).timeout
 		var enemy = Enemy.instantiate()
 		enemy.global_position = global_position
-		get_parent().add_child(enemy)
+		get_parent().get_parent().add_child(enemy)

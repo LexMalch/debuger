@@ -65,3 +65,10 @@ func get_closest_target():
 func _on_timer_timeout() -> void:
 	if health == max_health:
 		$ProgressBar.hide()
+
+
+func _on_healing_timer_timeout() -> void:
+	if health < max_health:
+		health+=1
+	else:
+		$ProgressBar.hide()
