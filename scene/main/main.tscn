@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=4 uid="uid://b6nyv11ur5obw"]
+[gd_scene load_steps=34 format=4 uid="uid://b6nyv11ur5obw"]
 
 [ext_resource type="Shader" uid="uid://cgdvld361dd5t" path="res://scene/main/glitch.gdshader" id="1_si3g0"]
 [ext_resource type="Texture2D" uid="uid://b8g0t3osot2f" path="res://art/pics/tileset.png" id="2_siuy0"]
 [ext_resource type="Script" uid="uid://wq4x0hjane70" path="res://scene/main/cave.gd" id="3_siuy0"]
+[ext_resource type="AudioStream" uid="uid://u6afppednqju" path="res://sounds/explosion.wav" id="4_36wa8"]
 [ext_resource type="PackedScene" uid="uid://bhxix5rdtca7p" path="res://scene/player/player.tscn" id="4_b8g54"]
 [ext_resource type="PackedScene" uid="uid://b4prfxi5j7xur" path="res://scene/generator/generator.tscn" id="4_qtsyf"]
 [ext_resource type="Texture2D" uid="uid://dqpcj1awtuhy4" path="res://art/pics/Sprite-0005.png" id="7_b8g54"]
@@ -173,6 +174,23 @@ custom_data_layer_2/name = "blue"
 custom_data_layer_2/type = 1
 sources/0 = SubResource("TileSetAtlasSource_onf7c")
 
+[sub_resource type="Curve" id="Curve_36wa8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.370536, 0.191011), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_y2sod"]
+curve = SubResource("Curve_36wa8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_36wa8"]
+particle_flag_disable_z = true
+angle_min = -184.9
+angle_max = 1.07288e-05
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+gravity = Vector3(1, 0, 0)
+alpha_curve = SubResource("CurveTexture_y2sod")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ruc3j"]
 shader = ExtResource("1_si3g0")
 shader_parameter/shake_power = 0.545
@@ -296,6 +314,13 @@ tile_map_data = PackedByteArray("AAAAAAEAAAAEAAEAAAAAAAIAAAAEAAEAAAAAAAMAAAAEAAE
 tile_set = SubResource("TileSet_efxa6")
 script = ExtResource("3_siuy0")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Cave"]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_36wa8")
+
 [node name="Wall" type="TileMapLayer" parent="."]
 position = Vector2(17, -336)
 tile_map_data = PackedByteArray("AAAAAP//AAADAAEAAAABAP//AAADAAEAAAACAP//AAADAAEAAAADAP//AAADAAEAAAAEAP//AAADAAEAAAAFAP//AAADAAEAAAAGAP//AAADAAEAAAAHAP//AAADAAEAAAAIAP//AAADAAEAAAAJAP//AAADAAEAAAAKAP//AAADAAEAAAALAP//AAADAAEAAAAMAP//AAADAAEAAAANAP//AAADAAEAAAAOAP//AAADAAEAAAAPAP//AAADAAEAAAAQAP//AAADAAEAAAARAP//AAADAAEAAAASAP//AAADAAEAAAA=")
@@ -327,7 +352,12 @@ autostart = true
 [node name="Player" parent="." instance=ExtResource("4_b8g54")]
 unique_name_in_owner = true
 z_index = 10
-position = Vector2(272, 80)
+position = Vector2(256, 80)
+
+[node name="digging" type="AudioStreamPlayer2D" parent="Player"]
+unique_name_in_owner = true
+stream = ExtResource("4_36wa8")
+volume_db = -30.946
 
 [node name="Generator" parent="." instance=ExtResource("4_qtsyf")]
 unique_name_in_owner = true

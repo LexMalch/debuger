@@ -68,7 +68,7 @@ shape = SubResource("CircleShape2D_fgfb3")
 [node name="Turret_tower" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cakeb")
 animation = &"shoot"
-frame_progress = 0.279545
+frame_progress = 0.915937
 
 [node name="DetactionArea" type="Area2D" parent="."]
 collision_layer = 0

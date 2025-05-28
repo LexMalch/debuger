@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var max_speed = 100
 @onready var cave: = $/root/Main/Cave
-var damage = 5
+
 var	build_mode = false
 var	fight_mode = false
 var	dig_mode = false 
@@ -47,8 +47,10 @@ func _physics_process(delta: float) -> void:
 		if dig_mode ==true and dig_av== true:	
 			if $RayCast2D.get_collider() and $RayCast2D.get_collider().get("name") == "Cave":
 				var colider = $RayCast2D.get_collider_rid()
-				print(colider)
-				cave.damage_tile(colider,damage)
+				
+				cave.damage_tile(colider,Globals.digging_speed)
+				%digging.pitch_scale= randf_range(0.8,1.2)
+				%digging.play()
 				dig_av= false
 				$dig_timer.start()
 			
