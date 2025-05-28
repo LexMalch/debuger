@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bcdvhgcf6nsvj"]
+[gd_scene load_steps=22 format=3 uid="uid://bcdvhgcf6nsvj"]
 
 [ext_resource type="Script" uid="uid://bhocjx5tn612o" path="res://scene/enemy/enemy_spider/enemy_spider.gd" id="1_4af2y"]
 [ext_resource type="Texture2D" uid="uid://d3bytl3aiwopp" path="res://scene/enemy/enemy_spider/enemy_body1.png" id="2_4af2y"]
@@ -94,9 +94,26 @@ size = Vector2(22, 20)
 [sub_resource type="CircleShape2D" id="CircleShape2D_w86bc"]
 radius = 611.433
 
-[node name="Enemy_spider" type="CharacterBody2D" groups=["player"]]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4af2y"]
+bg_color = Color(0.286275, 0.0509804, 0.407843, 0.235294)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w86bc"]
+bg_color = Color(0.39111, 0.664159, 0.572089, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.654056, 0.621038, 0.9866, 1)
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+anti_aliasing = false
+
+[node name="Enemy_spider" type="CharacterBody2D" groups=["enemys", "player"]]
 collision_layer = 16
-collision_mask = 2
+collision_mask = 18
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_4af2y")
@@ -137,7 +154,6 @@ texture = ExtResource("11_n75ol")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_max_distance = 200.0
 simplify_path = true
-debug_enabled = true
 debug_path_custom_color = Color(1, 0.34902, 0, 1)
 
 [node name="Detection_area" type="Area2D" parent="."]
@@ -148,6 +164,17 @@ shape = SubResource("CircleShape2D_w86bc")
 debug_color = Color(0, 0.6, 0.701961, 0.0470588)
 
 [node name="Attack_Timer" type="Timer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -13.0
+offset_top = -20.0
+offset_right = 14.0
+offset_bottom = -15.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4af2y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w86bc")
+value = 29.26
+show_percentage = false
 
 [connection signal="body_entered" from="Spider_head" to="." method="_on_spider_head_body_entered"]
 [connection signal="body_exited" from="Spider_head" to="." method="_on_spider_head_body_exited"]

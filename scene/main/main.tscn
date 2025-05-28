@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://b6nyv11ur5obw"]
+[gd_scene load_steps=30 format=4 uid="uid://b6nyv11ur5obw"]
 
 [ext_resource type="Shader" uid="uid://cgdvld361dd5t" path="res://scene/main/glitch.gdshader" id="1_si3g0"]
 [ext_resource type="Texture2D" uid="uid://b8g0t3osot2f" path="res://art/pics/tileset.png" id="2_siuy0"]
@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dqpcj1awtuhy4" path="res://art/pics/Sprite-0005.png" id="7_b8g54"]
 [ext_resource type="Texture2D" uid="uid://cl4p6eyl5u1hh" path="res://art/pics/0.png" id="8_onf7c"]
 [ext_resource type="Shader" uid="uid://c4csolk8a1q6q" path="res://scene/main/tv.gdshader" id="10_pidc3"]
+[ext_resource type="Script" uid="uid://cpdj22x03gbfw" path="res://scene/main/spawner.gd" id="11_36wa8"]
 [ext_resource type="PackedScene" uid="uid://dnc58tnt2s82t" path="res://scene/turret/turret.tscn" id="11_snrr3"]
-[ext_resource type="PackedScene" uid="uid://bcdvhgcf6nsvj" path="res://scene/enemy/enemy_spider/enemy_spider.tscn" id="12_36wa8"]
 [ext_resource type="PackedScene" uid="uid://cywlduvi614dl" path="res://scene/BuildingSystem/building_system.tscn" id="13_n5o2v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pidc3"]
@@ -109,6 +109,7 @@ texture_region_size = Vector2i(32, 32)
 2:1/0 = 0
 2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_n5o2v")
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_n5o2v")
 4:1/0 = 0
 4:1/0/probability = 4.0
@@ -171,6 +172,14 @@ custom_data_layer_1/type = 2
 custom_data_layer_2/name = "blue"
 custom_data_layer_2/type = 1
 sources/0 = SubResource("TileSetAtlasSource_onf7c")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ruc3j"]
+shader = ExtResource("1_si3g0")
+shader_parameter/shake_power = 0.545
+shader_parameter/shake_rate = 0.773
+shader_parameter/shake_speed = 28.565
+shader_parameter/shake_block_size = 20.92
+shader_parameter/shake_color_rate = 0.215
 
 [sub_resource type="Gradient" id="Gradient_si3g0"]
 offsets = PackedFloat32Array(0.0123967, 0.260331, 1)
@@ -286,6 +295,20 @@ tile_map_data = PackedByteArray("AAAAAAEAAAAEAAEAAAAAAAIAAAAEAAEAAAAAAAMAAAAEAAE
 tile_set = SubResource("TileSet_efxa6")
 script = ExtResource("3_siuy0")
 
+[node name="Wall" type="TileMapLayer" parent="."]
+position = Vector2(17, -336)
+tile_map_data = PackedByteArray("AAAAAP//AAADAAEAAAABAP//AAADAAEAAAACAP//AAADAAEAAAADAP//AAADAAEAAAAEAP//AAADAAEAAAAFAP//AAADAAEAAAAGAP//AAADAAEAAAAHAP//AAADAAEAAAAIAP//AAADAAEAAAAJAP//AAADAAEAAAAKAP//AAADAAEAAAALAP//AAADAAEAAAAMAP//AAADAAEAAAANAP//AAADAAEAAAAOAP//AAADAAEAAAAPAP//AAADAAEAAAAQAP//AAADAAEAAAARAP//AAADAAEAAAASAP//AAADAAEAAAA=")
+tile_set = SubResource("TileSet_efxa6")
+
+[node name="Glich" type="ColorRect" parent="Wall"]
+z_index = 1000
+material = SubResource("ShaderMaterial_ruc3j")
+offset_left = -22.0
+offset_top = -1042.0
+offset_right = 647.0
+offset_bottom = -32.0
+scale = Vector2(1, 0.998413)
+
 [node name="Player" parent="." instance=ExtResource("4_b8g54")]
 unique_name_in_owner = true
 z_index = 10
@@ -293,7 +316,7 @@ position = Vector2(272, 80)
 
 [node name="Generator" parent="." instance=ExtResource("4_qtsyf")]
 unique_name_in_owner = true
-position = Vector2(384, 56)
+position = Vector2(400, 65)
 
 [node name="BackGround" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
@@ -359,5 +382,19 @@ unique_name_in_owner = true
 [node name="Turret" parent="." instance=ExtResource("11_snrr3")]
 position = Vector2(352, -33)
 
-[node name="Enemy_spider" parent="." instance=ExtResource("12_36wa8")]
-position = Vector2(207, -446)
+[node name="Spawner" type="Marker2D" parent="."]
+position = Vector2(63, -326)
+script = ExtResource("11_36wa8")
+
+[node name="Polygon2D" type="Polygon2D" parent="Spawner"]
+polygon = PackedVector2Array(-1, -10, -9, 5, 12, 7)
+
+[node name="DirTimer" type="Timer" parent="Spawner"]
+autostart = true
+
+[node name="SpawnTimer" type="Timer" parent="Spawner"]
+wait_time = 30.0
+autostart = true
+
+[connection signal="timeout" from="Spawner/DirTimer" to="Spawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]

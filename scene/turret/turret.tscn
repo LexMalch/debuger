@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnc58tnt2s82t"]
+[gd_scene load_steps=13 format=3 uid="uid://dnc58tnt2s82t"]
 
 [ext_resource type="Script" uid="uid://dkt25th7gk35s" path="res://scene/turret/turret.gd" id="1_n7iuj"]
 [ext_resource type="Texture2D" uid="uid://dmatlb5kv0sni" path="res://scene/turret/sprite/turret.png" id="1_yfb4x"]
@@ -34,6 +34,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_n7iuj"]
+radius = 145.031
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7iuj"]
+bg_color = Color(0.286275, 0.0509804, 0.407843, 0.235294)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cln5p"]
+bg_color = Color(0.816454, 0.498, 0.50454, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.654056, 0.621038, 0.9866, 1)
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+anti_aliasing = false
+
 [node name="Turret" type="StaticBody2D" groups=["ally"]]
 collision_layer = 2
 collision_mask = 0
@@ -48,3 +68,33 @@ shape = SubResource("CircleShape2D_fgfb3")
 [node name="Turret_tower" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cakeb")
 animation = &"shoot"
+frame_progress = 0.306884
+
+[node name="DetactionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetactionArea"]
+shape = SubResource("CircleShape2D_n7iuj")
+
+[node name="SootingTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -13.0
+offset_top = 14.0
+offset_right = 14.0
+offset_bottom = 19.0
+theme_override_styles/background = SubResource("StyleBoxFlat_n7iuj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cln5p")
+value = 29.26
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="DetactionArea" to="." method="_on_detaction_area_body_entered"]
+[connection signal="body_exited" from="DetactionArea" to="." method="_on_detaction_area_body_exited"]
+[connection signal="timeout" from="SootingTimer" to="." method="_on_sooting_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

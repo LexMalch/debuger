@@ -1,20 +1,27 @@
 extends CharacterBody2D
 const  max_speed = 50
+var max_health = 10
 var damage = 2
+
 enum State {
 	MOVING_DOWN,
 	MOVING_TO_TARGET,
 	ATTACK
 }
 var state = State.MOVING_DOWN
+@onready var health = max_health
 @onready var nav_ag : = $NavigationAgent2D as NavigationAgent2D
 var targets = []
 var nearest_body  
 var direction = Vector2.DOWN
 var attack_target
 
+	
+
 func _physics_process(delta: float) -> void:
 	velocity = direction * max_speed
+	$ProgressBar.max_value = max_health
+	$ProgressBar.value = health
 	match state:
 		State.MOVING_DOWN:
 			direction = Vector2.DOWN
@@ -103,3 +110,11 @@ func _on_attack_timer_timeout() -> void:
 func _on_spider_head_body_exited(body: Node2D) -> void:
 	attack_target = null
 	$Bite.stop()
+
+func get_damage(damage_amount):
+	$ProgressBar.show()
+	health -= damage_amount
+	health = clamp(health, 0, max_health)
+
+	if health <= 0:
+		queue_free()
