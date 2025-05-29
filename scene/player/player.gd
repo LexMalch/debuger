@@ -11,26 +11,17 @@ var build_sprite =  preload("res://art/pics/otv.png")
 var dig_sprite =  preload("res://scene/laser/sprite/laser_use4.png")
 
 func _physics_process(delta: float) -> void:
-	
 	var direction = movement_vector().normalized()
 	velocity = max_speed * direction * delta * max_speed
 	if velocity.x > 0:
 		$AnimatedSprite2D.flip_h = false	
 		$AnimatedSprite2D.play("run_right")
-		$RayCast2D.rotation = deg_to_rad(-90)
-
 	elif velocity.x < 0:
 		$AnimatedSprite2D.flip_h = true	
 		$AnimatedSprite2D.play("run_right")
-		$RayCast2D.rotation = deg_to_rad(90)
-		
 	elif velocity.y > 0:
 		$AnimatedSprite2D.play("run_down")
-		$RayCast2D.rotation = deg_to_rad(0)
-
 	elif velocity.y < 0:
-		$RayCast2D.rotation = deg_to_rad(180)
-
 		$AnimatedSprite2D.play("run_up")
 	else:
 		$AnimatedSprite2D.play("idle")
@@ -44,6 +35,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("zoom_reset"):
 		$Camera2D.zoom = Vector2(1.75,1.75)
 	if Input.is_action_pressed("lmb"):
+<<<<<<< Updated upstream
 		if dig_mode ==true and dig_av== true:	
 			if $RayCast2D.get_collider() and $RayCast2D.get_collider().get("name") == "Cave":
 				var colider = $RayCast2D.get_collider_rid()
@@ -51,6 +43,13 @@ func _physics_process(delta: float) -> void:
 				cave.damage_tile(colider,Globals.digging_speed)
 				%digging.pitch_scale= randf_range(0.8,1.2)
 				%digging.play()
+=======
+		if dig_mode == true and dig_av == true:	
+			if $Laser/Beam.get_collider() and $Laser/Beam.get_collider().get("name") == "Cave":
+				var colider = $Laser/Beam.get_collider_rid()
+				print(colider)
+				cave.damage_tile(colider,damage)
+>>>>>>> Stashed changes
 				dig_av= false
 				$dig_timer.start()
 			

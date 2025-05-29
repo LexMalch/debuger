@@ -161,7 +161,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_efxa6"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 3
+physics_layer_0/collision_layer = 35
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -234,6 +234,11 @@ shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.402
 
 [node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("4_b8g54")]
+unique_name_in_owner = true
+z_index = 10
+position = Vector2(272, 80)
 
 [node name="Gliching" type="Node2D" parent="."]
 
@@ -314,6 +319,7 @@ tile_map_data = PackedByteArray("AAAAAAEAAAAEAAEAAAAAAAIAAAAEAAEAAAAAAAMAAAAEAAE
 tile_set = SubResource("TileSet_efxa6")
 script = ExtResource("3_siuy0")
 
+<<<<<<< Updated upstream
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Cave"]
 emitting = false
 amount = 20
@@ -359,6 +365,8 @@ unique_name_in_owner = true
 stream = ExtResource("4_36wa8")
 volume_db = -30.946
 
+=======
+>>>>>>> Stashed changes
 [node name="Generator" parent="." instance=ExtResource("4_qtsyf")]
 unique_name_in_owner = true
 position = Vector2(400, 65)
@@ -409,8 +417,14 @@ scale = Vector2(4, 4)
 texture = ExtResource("8_onf7c")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+<<<<<<< Updated upstream
 position = Vector2(315.75, 653.5)
 scale = Vector2(9.69531, 15.1406)
+=======
+visible = false
+position = Vector2(315.75, 384)
+scale = Vector2(9.69531, 7.59375)
+>>>>>>> Stashed changes
 blend_mode = 1
 texture = SubResource("GradientTexture2D_pidc3")
 

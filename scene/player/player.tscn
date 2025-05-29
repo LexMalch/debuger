@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bhxix5rdtca7p"]
+[gd_scene load_steps=38 format=3 uid="uid://bhxix5rdtca7p"]
 
 [ext_resource type="Script" uid="uid://dyota6iuux5kf" path="res://scene/player/player.gd" id="1_jm5j8"]
 [ext_resource type="Texture2D" uid="uid://d2vyky0famktu" path="res://art/player_sorite/player_idle1.png" id="2_7hik5"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://ctaghglah3b3a" path="res://art/player_sorite/player_up7.png" id="24_vl8ci"]
 [ext_resource type="Texture2D" uid="uid://bxxn0uffljwxv" path="res://art/player_sorite/player_up8.png" id="25_ieltc"]
 [ext_resource type="PackedScene" uid="uid://ekti8rrglr4i" path="res://scene/laser/laser.tscn" id="26_04bvi"]
+[ext_resource type="PackedScene" uid="uid://pv6m3picq1tr" path="res://scene/ui/ui.tscn" id="26_nqjai"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fddr8"]
 animations = [{
@@ -187,9 +188,6 @@ autoplay = "idle"
 position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_oybyf")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.75, 1.75)
-
 [node name="suck" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
@@ -208,11 +206,6 @@ speed_scale = 1.29
 randomness = 0.61
 process_material = SubResource("ParticleProcessMaterial_5sn52")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, 2)
-scale = Vector2(2.65, 0.885)
-target_position = Vector2(0, 18.0791)
-
 [node name="PointLight2D" type="PointLight2D" parent="."]
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.168627)
@@ -226,5 +219,14 @@ scale = Vector2(0.5, 0.5)
 [node name="dig_timer" type="Timer" parent="."]
 
 [node name="Laser" parent="." instance=ExtResource("26_04bvi")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.75, 1.75)
+
+[node name="ui" parent="Camera2D" instance=ExtResource("26_nqjai")]
+offset_left = -313.0
+offset_top = -179.0
+offset_right = -313.0
+offset_bottom = -179.0
 
 [connection signal="timeout" from="dig_timer" to="." method="_on_dig_timer_timeout"]

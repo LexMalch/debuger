@@ -22,10 +22,10 @@ Globals="*res://globals.gd"
 [display]
 
 window/size/viewport_width=640
-window/size/viewport_height=640
+window/size/viewport_height=360
 window/size/initial_position_type=0
-window/size/window_width_override=900
-window/size/window_height_override=900
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/aspect="ignore"
 window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=0
@@ -33,6 +33,10 @@ window/vsync/vsync_mode=0
 [global_group]
 
 player=""
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 
@@ -108,6 +112,8 @@ dig_mode={
 2d_physics/layer_2="Map"
 2d_physics/layer_3="Cave"
 2d_physics/layer_4="Coins"
+2d_physics/layer_5="enemy"
+2d_physics/layer_6="laser"
 
 [physics]
 
